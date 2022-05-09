@@ -11,7 +11,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    conn = sqlite3.connect('new.db')
     c = conn.cursor()
     # c.execute('SELECT title FROM posts')
     # titles = c.fetchall()
