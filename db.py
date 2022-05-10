@@ -9,7 +9,13 @@ conn.autocommit = True
 cursor = conn.cursor()
 
 #Preparing query to create a database
-sql = '''CREATE database mydb'''
+sql ='''CREATE TABLE EMPLOYEE(
+   FIRST_NAME CHAR(20) NOT NULL,
+   LAST_NAME CHAR(20),
+   AGE INT,
+   SEX CHAR(1),
+   INCOME FLOAT
+)'''
 
 #Creating a database
 cursor.execute(sql)
