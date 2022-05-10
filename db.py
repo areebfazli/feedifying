@@ -16,4 +16,5 @@ cursor.execute(sql)
 print("Database created successfully........")
 
 #Closing the connection
+conn.commit()
 conn.close()
