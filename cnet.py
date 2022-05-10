@@ -2,13 +2,17 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import psycopg2
-
+import sqlite3
 
 def tech():
     #creating database and if already exists connecting to it
-    DATABASE_URL = os.environ['DATABASE_URL']
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    # DATABASE_URL = os.environ['DATABASE_URL']
+    # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    # c = conn.cursor()
+
+    conn = sqlite3.connect('new.db')
     c = conn.cursor()
+
 
     #for creating a table
     try:
@@ -34,7 +38,7 @@ def tech():
         # print(title, content)
         # print(link['href'])
 
-        c.execute('''INSERT INTO posts(title, content, link)VALUES(?,?,?)''', (title, content, link))
+        c.execute('''INSERT OR IGNORE INTO posts(title, content, link)VALUES(?,?,?)''', (title, content, link))
 
     conn.commit()
     conn.close()
