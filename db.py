@@ -9,7 +9,7 @@ conn.autocommit = True
 cursor = conn.cursor()
 
 #Preparing query to create a database
-sql ='''DROP TABLE employee'''
+sql ='''CREATE TABLE posts(id INTEGER PRIMARY KEY, title TEXT UNIQUE, content TEXT, link TEXT)'''
 
 #Creating a database
 cursor.execute(sql)
