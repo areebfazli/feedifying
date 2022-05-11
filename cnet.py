@@ -38,7 +38,7 @@ def tech():
         # print(title, content)
         # print(link['href'])
 
-        c.execute('''INSERT OR IGNORE INTO POSTS(title, content, link)VALUES(?,?,?)''', (title, content, link))
+        c.execute('''INSERT OR IGNORE INTO POSTS(TITLE, CONTENT, LINK)VALUES(?,?,?)''', (title, content, link))
 
     conn.commit()
     conn.close()

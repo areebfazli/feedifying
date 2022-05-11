@@ -24,7 +24,7 @@ def home():
     # links = c.fetchall()
     # links = [str(val[0]) for val in links]
 
-    c.execute('SELECT * FROM posts')
-    titles = c.fetchall()
+    c.execute('SELECT * FROM POSTS')
+    posts = c.fetchall()
     return render_template('index.html', titles = titles)
     #return data[0]
