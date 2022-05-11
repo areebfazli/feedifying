@@ -6,11 +6,11 @@ import sqlite3
 
 def tech():
     #creating database and if already exists connecting to it
-    # DATABASE_URL = os.environ['DATABASE_URL']
-    # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    # c = conn.cursor()
+    DATABASE_URL = os.environ['DATABASE_URL']
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    conn.autocommit = True
 
-    conn = sqlite3.connect('new.db')
+    # conn = sqlite3.connect('new.db')
     c = conn.cursor()
 
 
@@ -38,7 +38,7 @@ def tech():
         # print(title, content)
         # print(link['href'])
 
-        c.execute('''INSERT OR IGNORE INTO posts(title, content, link)VALUES(?,?,?)''', (title, content, link))
+        c.execute('''INSERT OR IGNORE INTO POSTS(title, content, link)VALUES(?,?,?)''', (title, content, link))
 
     conn.commit()
     conn.close()
