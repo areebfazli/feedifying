@@ -26,5 +26,5 @@ def home():
 
     c.execute('SELECT * FROM POSTS')
     posts = c.fetchall()
-    return render_template('index.html', titles = titles)
+    return render_template('index.html', posts = posts)
     #return data[0]
