@@ -10,10 +10,10 @@ cursor = conn.cursor()
 
 #Preparing query to create a database
 # sql ='''CREATE TABLE POSTS(ID SERIAL PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT VARCHAR, LINK VARCHAR)'''
-cursor.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES ('new', 'good', 'q')''')
-# sql = '''DROP TABLE POSTS'''
+# cursor.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES ('new', 'good', 'q')''')
+sql = '''DROP TABLE POSTS'''
 #Creating a database
-# cursor.execute(sql)
+cursor.execute(sql)
 print("Database created successfully........")
 
 #Closing the connection

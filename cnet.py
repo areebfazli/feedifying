@@ -16,7 +16,7 @@ def tech():
 
     #for creating a table
     try:
-        c.execute('''CREATE TABLE posts(id INTEGER PRIMARY KEY, title TEXT UNIQUE, content TEXT, link TEXT)''')
+        c.execute('''CREATE TABLE posts(ID SERIAL PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT VARCHAR, LINK VARCHAR)''')
 
     except: 
         pass
