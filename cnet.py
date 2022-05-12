@@ -38,7 +38,7 @@ def tech():
         # print(title, content)
         # print(link['href'])
 
-        c.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK)VALUES(%s,%s,%s)''', (title, content, link))
+        c.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES (%s,%s,%s)''', (title, content, link))
 
     conn.commit()
     conn.close()
