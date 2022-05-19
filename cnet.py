@@ -26,7 +26,7 @@ def tech():
     soup = BeautifulSoup(html_text, "html.parser")
 
     posts = soup.select('.post-block.post-block--image.post-block--unread')
-    id = 1
+    id = 10000
 
     for post in posts:
         title = post.select_one('a.post-block__title__link').text.strip()
