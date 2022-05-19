@@ -14,7 +14,7 @@ sql ='''CREATE TABLE CNET(ID INTEGER PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT 
 # sql = '''DROP TABLE POSTS'''
 #Creating a database
 cursor.execute(sql)
-print("Database created successfully........")
+print("NEW TABLE")
 
 #Closing the connection
 conn.commit()
