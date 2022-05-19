@@ -6,8 +6,8 @@ import sqlite3
 
 def tech():
     #creating database and if already exists connecting to it
-    DATABASE_URL = os.environ['DATABASE_URL']
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    # DATABASE_URL = os.environ['DATABASE_URL']
+    conn = psycopg2.connect('postgres://rdtjzllcharamn:fd70085c8f469bdd17438cd924f95ce76744959756508b69196cd6be67b7b142@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/de3c8rlvki5aep', sslmode='require')
     conn.autocommit = True
 
     # conn = sqlite3.connect('new.db')
@@ -38,8 +38,9 @@ def tech():
         # print(title, content)
         # print(link['href'])
         try:
-            c.execute('SELECT MAX(ID) FROM POSTS')
-            id = c.fetchone
+            c.execute('SELECT MAX(ID) AS ID FROM POSTS')
+            id = c.fetchone()
+            id  = int(id[0])
             print(id)
         except:
             pass
