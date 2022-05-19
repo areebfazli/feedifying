@@ -15,18 +15,18 @@ def tech():
 
 
     #for creating a table
-    try:
-        c.execute('''CREATE TABLE posts(ID SERIAL PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT VARCHAR, LINK VARCHAR)''')
+    # try:
+    #     c.execute('''CREATE TABLE posts(ID SERIAL PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT VARCHAR, LINK VARCHAR)''')
 
-    except: 
-        pass
+    # except: 
+    #     pass
 
 
     html_text = requests.get('https://techcrunch.com').text
     soup = BeautifulSoup(html_text, "html.parser")
 
     posts = soup.select('.post-block.post-block--image.post-block--unread')
-
+    id = 1
 
     for post in posts:
         title = post.select_one('a.post-block__title__link').text.strip()
@@ -37,8 +37,13 @@ def tech():
         
         # print(title, content)
         # print(link['href'])
+        try:
+            id = c.execute('SELECT MAX(ID) FROM POSTS')
+        except:
+            pass
 
-        c.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES (%s,%s,%s) ON CONFLICT (TITLE) DO NOTHING''', (title, content, link))
+        # c.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES (%s,%s,%s) ON CONFLICT (TITLE) DO NOTHING''', (title, content, link))
+        c.execute('''INSERT INTO POSTS(ID, TITLE, CONTENT, LINK) VALUES (%s, %s, %s, %s) ON CONFLICT (TITLE) DO NOTHING''', (id, title, content, link))
 
     conn.commit()
     conn.close()
