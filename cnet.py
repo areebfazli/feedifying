@@ -39,6 +39,7 @@ def tech():
         # print(link['href'])
         try:
             id = c.execute('SELECT MAX(ID) FROM POSTS')
+            print(id)
         except:
             pass
 
