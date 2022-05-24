@@ -2,8 +2,14 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import psycopg2
+from scripts.database import DATABASE_URL
 
-conn = psycopg2.connect('postgres://rdtjzllcharamn:fd70085c8f469bdd17438cd924f95ce76744959756508b69196cd6be67b7b142@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/de3c8rlvki5aep', sslmode='require')
+try:
+    DATABASE_URL = os.environ['DATABASE_URL']
+except:
+    pass
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 conn.autocommit = True
 
 c = conn.cursor()
@@ -21,7 +27,7 @@ for post in posts:
     link = str(link['href'])
 
     try:
-        c.execute('SELECT MAX(ID) AS ID FROM WIRED')
+        c.execute('SELECT MAX(ID) AS ID FROM MASHABLE')
         max_id = c.fetchone()
         max_id = int(max_id[0])
         id = max_id + 1
@@ -29,7 +35,7 @@ for post in posts:
         pass
 
     # c.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES (%s,%s,%s) ON CONFLICT (TITLE) DO NOTHING''', (title, content, link))
-    c.execute('''INSERT INTO WIRED(ID, TITLE, CONTENT, LINK) VALUES (%s, %s, %s, %s) ON CONFLICT (TITLE) DO NOTHING''', (id, title, content, link))
+    c.execute('''INSERT INTO MASHABLE(ID, TITLE, CONTENT, LINK) VALUES (%s, %s, %s, %s) ON CONFLICT (TITLE) DO NOTHING''', (id, title, content, link))
 
 conn.commit()
 conn.close()

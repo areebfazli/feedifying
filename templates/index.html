@@ -19,9 +19,9 @@
           <td>{{ link }}</td>
           {% endfor %}
         </tr> -->
-        {% for post in posts %}
+        {% for techcrunch in techcrunchs %}
         <tr>
-          <td><a href="{{ post[3] }}">{{ post[1] }}</a> <br> <br> {{ post[2] }} <br> <br>  </td>
+          <td><a href="{{ techcrunch[3] }}">{{ techcrunch[1] }}</a> <br> <br> {{ techcrunch[2] }} <br> <br>  </td>
         </tr>
         {% endfor %}
       </table>
@@ -30,18 +30,18 @@
 
   <div class="column">
     <table class="table is-hoverable">
-    {% for post in posts %}
+    {% for mashable in mashables %}
         <tr>
-          <td><a href="{{ post[3] }}">{{ post[1] }}</a> <br> <br> {{ post[2] }} <br> <br>  </td>
+          <td><a href="{{ mashable[3] }}">{{ mashable[1] }}</a> <br> <br> {{ mashable[2] }} <br> <br>  </td>
         </tr>
         {% endfor %}
       </table>
   </div>
   <div class="column">
     <table class="table is-hoverable">
-    {% for post in posts %}
+    {% for verge in verges %}
         <tr>
-          <td><a href="{{ post[3] }}">{{ post[1] }}</a> <br> <br> {{ post[2] }} <br> <br>  </td>
+          <td><a href="{{ verge[3] }}">{{ verge[1] }}</a> <br> <br> {{ verge[2] }} <br> <br>  </td>
         </tr>
         {% endfor %}
       </table>

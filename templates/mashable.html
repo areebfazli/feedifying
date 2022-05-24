@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="columns" id="new">
+  <div class="column">
+    <table class="table is-hoverable">
+    {% for mashable in mashables %}
+        <tr>
+          <td><a href="{{ mashable[3] }}">{{ mashable[1] }}</a> <br> <br> {{ mashable[2] }} <br> <br>  </td>
+        </tr>
+        {% endfor %}
+      </table>
+  </div>
+ ]
+  </div>
+
+{% endblock %}

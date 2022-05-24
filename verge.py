@@ -1,8 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 import psycopg2
+import os
+from scripts.database import DATABASE_URL
 
-conn = psycopg2.connect('postgres://rdtjzllcharamn:fd70085c8f469bdd17438cd924f95ce76744959756508b69196cd6be67b7b142@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/de3c8rlvki5aep', sslmode='require')
+try:
+    DATABASE_URL = os.environ['DATABASE_URL']
+except:
+    pass
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 conn.autocommit = True
 
 c = conn.cursor()

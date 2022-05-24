@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="columns" id="new">
+    <div class="column">
+
+      <table >
+        {% for verge in verges %}
+        <tr>
+          <td><a href="{{ verge[3] }}">{{ verge[1] }}</a> <br> <br> {{ verge[2] }} <br> <br>  </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    
+  </div>
+
+{% endblock %}

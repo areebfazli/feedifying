@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="columns" id="new">
+    <div class="column">
+
+      <table >
+        {% for techcrunch in techcrunchs %}
+        <tr>
+          <td><a href="{{ techcrunch[3] }}">{{ techcrunch[1] }}</a> <br> <br> {{ techcrunch[2] }} <br> <br>  </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    
+  </div>
+
+{% endblock %}
