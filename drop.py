@@ -9,12 +9,12 @@ conn.autocommit = True
 cursor = conn.cursor()
 
 #Preparing query to create a database
-sql ='''CREATE TABLE VERGE(ID INTEGER PRIMARY KEY, TITLE VARCHAR UNIQUE NOT NULL, CONTENT VARCHAR NOT NULL, LINK VARCHAR)'''
+# sql ='''CREATE TABLE CNET(ID INTEGER PRIMARY KEY, TITLE VARCHAR UNIQUE, CONTENT VARCHAR, LINK VARCHAR)'''
 # cursor.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES ('new', 'good', 'q')''')
-# sql = '''DROP TABLE CNET'''
+sql = '''DROP TABLE VERGE'''
 #Creating a database
 cursor.execute(sql)
-print("table created")
+print("table dropped")
 
 #Closing the connection
 conn.commit()

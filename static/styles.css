@@ -1,0 +1,44 @@
+#new
+{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+tr:hover 
+{ 
+    background-color: rgba(248, 247, 247, 0.87);
+}
+
+td 
+{
+    border-bottom: 2px dotted #ddd;
+}
+
+#item-size
+{
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+#nav-bar
+{
+    padding-left: 100px !important;
+    
+}
+
+/* .navbar-menu.is-active
+{
+    background-color: rgb(190, 87, 87);
+} */
+
+
+@media all and (max-width: 1023px)
+{
+    #item-size
+    {
+        width: 100%;
+        align-items: center;
+        display: grid;
+    }
+}
+
