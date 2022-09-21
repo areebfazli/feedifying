@@ -11,7 +11,7 @@ conn.autocommit = True
 cursor = conn.cursor()
 
 #Preparing query to create a database
-sql ='''CREATE TABLE TECHCRUNCH(ID INTEGER PRIMARY KEY, TITLE VARCHAR UNIQUE NOT NULL, CONTENT VARCHAR NOT NULL, LINK VARCHAR)'''
+sql ='''CREATE TABLE VERGE(ID INTEGER PRIMARY KEY, TITLE VARCHAR UNIQUE NOT NULL, CONTENT VARCHAR NOT NULL, LINK VARCHAR)'''
 # cursor.execute('''INSERT INTO POSTS(TITLE, CONTENT, LINK) VALUES ('new', 'good', 'q')''')
 # sql = '''DROP TABLE CNET'''
 #Creating a database

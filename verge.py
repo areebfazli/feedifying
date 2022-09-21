@@ -16,28 +16,35 @@ c = conn.cursor()
 
 def new(link):
     html_text = requests.get(link).text
+    # print(html_text)
     soup = BeautifulSoup(html_text, "html.parser")
-    con = soup.select('div.c-entry-content')
+    con = soup.select('div.duet--article--article-body-component')
     for c in con:
         all = c.select_one('p').text
+        # print(all)
         return all
 
 id = 1
 
 
-html_text = requests.get('https://www.theverge.com/').text
+html_text = requests.get('https://www.theverge.com/tech/').text
 soup = BeautifulSoup(html_text, "html.parser")
+# print(soup)
 
-posts = soup.select('.c-compact-river__entry')
+posts = soup.select('.items-center h2')
 
 # print(len(posts))
 
 
 for post in posts:
-    title = post.select_one('.c-entry-box--compact__title').text.strip()
-    link = post.select_one('a')
-    link = str(link['href'])
-    content = new(link)
+    try:
+        title = post.select_one('a').text
+        link = post.select_one('a')
+        link = str(link['href'])
+        link = "https://www.theverge.com/" + link
+        content = new(link)
+    except:
+        pass
 
 
     # print(title)
