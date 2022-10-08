@@ -1,1 +1,0 @@
-DATABASE_URL = "postgres://nocbqxzjxcqsrk:8c99ada65ce7eece03a4d72795bc9f092d73379dd5f0cbc4e76a432b2bfc106f@ec2-52-30-159-47.eu-west-1.compute.amazonaws.com:5432/d4p1jmdlhd5pqj"
